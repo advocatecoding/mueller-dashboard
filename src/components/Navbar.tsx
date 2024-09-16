@@ -50,9 +50,9 @@ export default function Navbar({ currentPath }: PathProp) {
                         className="rounded-full h-16 w-16 hover:bg-accent expand-button"
                     >
                         {isCollapsed ? (
-                            <PiCaretRightBold className="text-accent hover:text-white" fontSize="6em" />
+                            <PiCaretRightBold className="text-accent hover:text-white text-3xl"  />
                         ) : (
-                            <PiCaretLeftBold className="text-accent hover:text-white" fontSize="6em" />
+                            <PiCaretLeftBold className="text-accent hover:text-white text-3xl"/>
                         )}
                     </Button>
                 </div>

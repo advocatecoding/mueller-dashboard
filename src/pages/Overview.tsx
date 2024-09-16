@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setStores } from '@/redux/slices/storesSlice';
 import { RootState } from '@/redux/store';
-import { Store } from '@/redux/storeTypes';
 import TabSelect from '@/components/TabSelect';
 
 import { Bar, BarChart, LabelList, XAxis, YAxis } from "recharts"
@@ -31,7 +29,6 @@ interface SectionsT {
 export default function Overview() {
 
     const stores = useSelector((state: RootState) => state.stores.stores);
-    const dispatch = useDispatch();
 
     const [locationData, setLocationData] = useState<StorelocationT[]>([]); // State für locationData
     const [sectionsData, setSectionsData] = useState<SectionsT[]>([]); // State für sectionsData
@@ -47,7 +44,7 @@ export default function Overview() {
     const chartConfig = {
         amount: {
             label: "Amount",
-            color: "hsl(var(--chart-1))",
+            color: "hsl(var(--accent))",
         }
     } satisfies ChartConfig
 
@@ -111,8 +108,8 @@ export default function Overview() {
 
 
     return (
-        <div className=' flex h-full flex-col items-center gap-3'>
-            <div className=' h-full flex bg-secondary rounded-3xl p-8'>
+        <div className=' flex h-full w-full flex-col items-center gap-3'>
+            <div className=' h-full flex rounded-xl '>
                 <ChartContainer config={chartConfig}>
                     <BarChart
                         className=''
@@ -137,20 +134,22 @@ export default function Overview() {
                         <XAxis dataKey="amount" type="number" hide />
                         <ChartTooltip
                             cursor={false}
-                            content={<ChartTooltipContent indicator="line" />}
+                            content={<ChartTooltipContent className=' bg-secondary'  indicator="line" />}
                         />
                         <Bar
                             dataKey="amount"
                             layout="vertical"
-                            fill="white"
+                            fill="transparent"
+                            stroke='white'
+                            strokeWidth={"2px"}
                             radius={4}
                         >
                             <LabelList
                                 dataKey={chartType === "locations" ? "location" : "section"}
                                 position="insideBottomLeft"
                                 offset={12}
-                                className="red"
                                 fontSize={12}
+                                fill='white'
                             />
                             <LabelList
                                 dataKey="amount"
@@ -158,6 +157,7 @@ export default function Overview() {
                                 offset={8}
                                 className="text-white"
                                 fontSize={"1em"}
+                                fill='white'
                             />
                         </Bar>
                     </BarChart>

@@ -56,3 +56,12 @@
 .leaflet-control-zoom-out {
   background-color: hsl(var(--secondary)) !important;
 }
+
+.leaflet-container {
+  border-radius: 0.8em;
+}
+
+
+.recharts-layer text tspan {
+
+}

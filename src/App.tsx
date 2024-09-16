@@ -16,12 +16,10 @@ import Header from './components/Header'
 function App() {
 
   const location = useLocation();
-
-  const stores = useSelector((state: RootState) => state.stores.stores);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Hier könntest du einen API-Call machen und dann die Daten speichern
+    // Stores von der API ziehen und im global State speichern
     const fetchStores = async () => {
         const response = await fetch('https://www.mueller.de/api/ccstore/allPickupStores/');
         const data: Store[] = await response.json();
