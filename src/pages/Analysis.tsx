@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { ScrollArea } from '@radix-ui/react-scroll-area';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 
 import {
@@ -41,8 +40,7 @@ export default function Analysis() {
 
     const stores = useSelector((state: RootState) => state.stores.stores);
 
-
-    const [data, setData] = useState<storeTable[]>(stores)
+    const data:storeTable[] = stores 
     const [sorting, setSorting] = useState<SortingState>([])
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = useState({})

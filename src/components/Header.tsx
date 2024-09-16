@@ -6,9 +6,9 @@ import {
 
 import { PathProp } from '@/types/pathType';
 
-export default function Header({currentPath}: PathProp) {
+import bewerbungsfoto from '@/assets/bewerbungsfoto.png'
 
-    console.log(currentPath)
+export default function Header({currentPath}: PathProp) {
 
     const titleInfos = new Map <string, string>([
         ["overview",  "Have a look at the frequency of the basic store data."],
@@ -26,7 +26,7 @@ export default function Header({currentPath}: PathProp) {
 
             <div className="space-y-1 w-96">
                 <h1 className="text-3xl font-medium text-center leading-none">
-                    {currentPath.split("/")[1][0].toUpperCase() + currentPath.split("/")[1].substring(1)}
+                    {currentPath.split("/")[1][0]?.toUpperCase() + currentPath.split("/")[1]?.substring(1)}
                 </h1>
                 <p className="text-sm text-muted-foreground text-center">
                     {titleInfos.get(currentPath.split("/")[1])}
@@ -35,7 +35,7 @@ export default function Header({currentPath}: PathProp) {
 
             <div className="w-96 flex justify-end">
                 <Avatar>
-                    <AvatarImage src="src/assets/bewerbungsfoto.png" alt="@shadcn" />
+                    <AvatarImage src={bewerbungsfoto} alt="@shadcn" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
             </div>

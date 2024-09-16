@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store';
 import TabSelect from '@/components/TabSelect';
 
@@ -99,7 +99,7 @@ export default function Overview() {
 
         // Nur Städte die 2 > vorkommen filtern
         const locationData = Object.entries(cityCount)
-            .filter(([city, count]) => count > 2) // Nur wenn 2> ist
+            .filter(([_, count]) => count > 2) // Nur wenn 2> ist
             .map(([city, count]) => ({ location: city, amount: count })) // benötigtes Format
             .sort((a, b) => b.amount - a.amount); // Absteigend sortiern
 
@@ -108,18 +108,15 @@ export default function Overview() {
 
 
     return (
-        <div className=' flex h-full w-full flex-col items-center gap-3'>
-            <div className=' h-full flex rounded-xl '>
+        <div className=' flex w-11/12 flex-col items-start gap-3'>
+
+            <div className='w-full'>
                 <ChartContainer config={chartConfig}>
                     <BarChart
                         className=''
                         accessibilityLayer
                         data={chartType === "locations" ? locationData : sectionsData}
                         layout="vertical"
-                        width={550}
-                        margin={{
-                            right: 16,
-                        }}
                     >
                         <YAxis
                             dataKey={chartType === "locations" ? "location" : "section"}
@@ -134,7 +131,7 @@ export default function Overview() {
                         <XAxis dataKey="amount" type="number" hide />
                         <ChartTooltip
                             cursor={false}
-                            content={<ChartTooltipContent className=' bg-secondary'  indicator="line" />}
+                            content={<ChartTooltipContent className=' bg-secondary' indicator="line" />}
                         />
                         <Bar
                             dataKey="amount"
@@ -164,7 +161,7 @@ export default function Overview() {
                 </ChartContainer>
             </div>
 
-            <div className='mt-6'>
+            <div className='pb-1 self-center'>
                 <TabSelect setChartType={setChart}></TabSelect>
             </div>
 
