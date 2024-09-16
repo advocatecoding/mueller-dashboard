@@ -1,0 +1,57 @@
+/* Nav CSS */
+.nav-container {
+    transition: width 0.5s ease, border-radius 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.nav-collapsed {
+    border-radius: 5em;
+}
+
+.nav-expanded {
+    border-radius: 5em 5em 18em 5em;
+}
+
+.logo-text {
+    transition: width 0.5s ease-out;
+}
+
+.nav-text {
+    transition: all 0.5s;
+}
+
+.nav-text-collapsed {
+    font-size: 0;
+}
+
+.nav-text-expanded {
+    font-size: 1.75em;
+}
+
+.nav-item-wrapper {
+    z-index: 9999;
+}
+
+.nav-item-wrapper svg {
+    z-index: 100;
+}
+
+.nav-item-wrapper:hover svg {
+    color: hsl(var(--accent))
+}
+
+.nav-item-wrapper:hover p {
+    color: hsl(var(--accent))
+}
+
+
+.navbar-icon:hover {
+    color: var(--accent) !important;
+}
+
+.expand-button:hover svg{
+    color: white;
+}
