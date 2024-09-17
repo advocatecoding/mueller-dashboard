@@ -24,8 +24,8 @@ export default function TabSelect({setChartType}: ChartTypeProp) {
     return (
         <Tabs defaultValue="locations" className="w-48" onValueChange={triggerChartType}>
             <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger className="text-foreground" value="locations">Locations</TabsTrigger>
-                <TabsTrigger value="sections">Sections</TabsTrigger>
+                <TabsTrigger className=" bg-transparent border-2 border-white" value="locations">Locations</TabsTrigger>
+                <TabsTrigger className="bg-transparent border-2 border-white" value="sections">Sections</TabsTrigger>
             </TabsList>
         </Tabs>
     )

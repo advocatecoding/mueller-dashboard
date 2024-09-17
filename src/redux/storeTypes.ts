@@ -9,8 +9,3 @@ export interface Store {
     sections: string;
     link: string;
 }
-
-export interface Filters {
-    region: string;
-    sections: string[];
-}

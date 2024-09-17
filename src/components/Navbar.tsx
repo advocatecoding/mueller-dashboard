@@ -15,7 +15,7 @@ export default function Navbar({ currentPath }: PathProp) {
 
     return (
         <>
-            <div className={`nav-container h-[60vh] bg-secondary ps-9 pt-12 pb-12  ${isCollapsed ? 'nav-collapsed w-36' : 'nav-expanded w-72'}`}>
+            <div className={`nav-container h-[60vh] bg-transparent border-2 ps-9 pt-12 pb-12  ${isCollapsed ? 'nav-collapsed w-36' : 'nav-expanded w-72'}`}>
 
                 {/* Logo */}
                 <div className="logo flex gap-5">
@@ -46,13 +46,13 @@ export default function Navbar({ currentPath }: PathProp) {
                 <div className="flex justify-start">
                     <Button
                         onClick={() => setIsCollapsed(!isCollapsed)}
-                        variant="default"
-                        className="rounded-full h-16 w-16 hover:bg-accent expand-button"
+                        variant="outline"
+                        className="rounded-full h-16 w-16 border-2 expand-button"
                     >
                         {isCollapsed ? (
-                            <PiCaretRightBold className="text-accent hover:text-white text-3xl"  />
+                            <PiCaretRightBold className="text-accent fill-accent text-3xl"  />
                         ) : (
-                            <PiCaretLeftBold className="text-accent hover:text-white text-3xl"/>
+                            <PiCaretLeftBold className="text-accent fill-accent text-3xl"/>
                         )}
                     </Button>
                 </div>
